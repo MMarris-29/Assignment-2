@@ -1,0 +1,95 @@
+Status : INCOMPLETE - at least one check did not pass
+Points : 40 / 40  (from check.py; counts only when the Git and GitHub checks pass)
+
+CS 1430 Assignment 2: The Cost of College
+GitHub user : unknown
+Repository  : unknown
+Commit      : unknown
+Message     : 
+Author      : 
+Committed   : 
+Checked     : 2026-10-26 23:43:48 Central Daylight Time
+Python      : 3.13.2
+
+================================================================
+CHECK RESULTS
+================================================================
+
+--- Toolchain ---
+[PASS] Python 3.13.2 is installed
+[PASS] main.py is in this folder
+[PASS] main.py runs without an error
+[PASS] The constants are unchanged
+[PASS] The launch lines are in place
+
+--- Your five functions (6 points each) ---
+[PASS] cost_per_semester gives back the right values  (6/6 pts)
+[PASS] cost_per_month gives back the right values  (6/6 pts)
+[PASS] cost_per_day gives back the right values  (6/6 pts)
+[PASS] cost_per_credit gives back the right values  (6/6 pts)
+[PASS] cost_per_class gives back the right values  (6/6 pts)
+
+--- Your program (10 points) ---
+[PASS] The menu runs from start to Q without an error  (5/5 pts)
+[PASS] Options 1 to 5 print all five amounts  (5/5 pts)
+
+--- Git and GitHub (required for your points to count) ---
+[PASS] Git is installed
+[PASS] This folder is a Git repository
+[FAIL] You have committed your own work
+   > So far there is only the template's first commit.
+   > In Source Control, type a message and click Commit.
+
+POINTS FROM check.py: 40 / 40
+
+================================================================
+PROGRAM OUTPUT  (typed: 14601, 15, 1, 2, 3, 4, 5, Q)
+================================================================
+What is your total cost of college this year? (please enter only numbers)  $What is your total credits this year? (please enter only numbers)  1 - Per semester
+2 - Per month
+3 - Per class day
+4 - Per credit
+5 - Per CS 1430 class
+6 - Is It Worth It?
+Q - Quit
+Choose an option: One semester at Platteville costs $7300.50!
+1 - Per semester
+2 - Per month
+3 - Per class day
+4 - Per credit
+5 - Per CS 1430 class
+6 - Is It Worth It?
+Q - Quit
+Choose an option: One month at Platteville costs $1622.33!
+1 - Per semester
+2 - Per month
+3 - Per class day
+4 - Per credit
+5 - Per CS 1430 class
+6 - Is It Worth It?
+Q - Quit
+Choose an option: One day at Platteville costs $97.34!
+1 - Per semester
+2 - Per month
+3 - Per class day
+4 - Per credit
+5 - Per CS 1430 class
+6 - Is It Worth It?
+Q - Quit
+Choose an option: One credit at Platteville costs $486.70!
+1 - Per semester
+2 - Per month
+3 - Per class day
+4 - Per credit
+5 - Per CS 1430 class
+6 - Is It Worth It?
+Q - Quit
+Choose an option: Each individual CS1430 class day costs $32.45!
+1 - Per semester
+2 - Per month
+3 - Per class day
+4 - Per credit
+5 - Per CS 1430 class
+6 - Is It Worth It?
+Q - Quit
+Choose an option:
