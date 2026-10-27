@@ -41,18 +41,15 @@ def cost_per_credit(annual_cost, credits):
 
 def cost_per_class(annual_cost, credits):
     """Give back what one 50-minute CS 1430 class meeting costs."""
-    #perClass = annual_cost / (CS1430_MEETINGS_PER_SEMESTER * SEMESTERS_PER_YEAR)
-    #perClass = (annual_cost / (CLASS_DAYS_PER_SEMESTER * SEMESTERS_PER_YEAR)) / CS1430_MEETINGS_PER_SEMESTER
-    perClass = ((annual_cost / credits) * CS1430_CREDITS) / (CS1430_MEETINGS_PER_SEMESTER * SEMESTERS_PER_YEAR) # ?????????????????
+    perClass = ((annual_cost / float(credits)) * CS1430_CREDITS) / (CS1430_MEETINGS_PER_SEMESTER * SEMESTERS_PER_YEAR)
     return perClass
 
-def trips_per_cs1430(annual_cost, trips):
-    perTrip = (cost_per_class(annual_cost, credits)) // trips # does this work????
-    if perTrip <= 400:
-        worthIt = False
-    else:
-        worthIt = True
-    return worthIt
+def skips_per_class(annual_cost, skips, credits, skipCredits, skipDays): # totalCost, how_many_skips, totalCredits, classSkipCredits, classSkipDays
+    perSkip = ((cost_per_credit(annual_cost, credits) * skipCredits) / skipDays) * skips # returns from perCredit
+    return perSkip
+
+# def worth_it():
+
 
 # ---- PROGRAM ----
 
@@ -98,32 +95,21 @@ def main():
             per_class_cost = cost_per_class(totalCost, totalCredits)
             print(f"Each individual CS1430 class day costs ${per_class_cost:.2f}!")
         elif choice == "6": # or "six" or "Six":
-            yesOrNo = input("Would you want to go to Disney world? Answer with Yes or No: ")
-            while True:
-                if yesOrNo == "Yes" or yesOrNo == "yes":
-                    how_many_trips = int(input("How many times would you go to Disney World? "))
-                    if how_many_trips <= 2:
-                        print(f"{how_many_trips}? You're thinking too small, so for now I'd say your money is in safe hands.")
-                        print("College is worth it.")
-                        break
-                    else:
-                        worth_it = trips_per_cs1430(totalCost, how_many_trips)
-                        if worth_it == True:
-                            print("Disney is too expensive. Especially when you could be at CS1430 instead.")
-                            print("College is worth it.")
-                            break
-                        else:
-                            print(f"You could go to Disney {how_many_trips} times for under $400 each!? Yeah, you're wasting your money.")
-                            print("College is NOT worth it.")
-                            break
-                    break
-                elif yesOrNo == "No" or yesOrNo == "no":
-                    print("Really? Well, in that case, I'd say your money is in safe hands.")
+            how_many_skips = int(input("How many times would you skip your most important class? Please respond with a number: "))
+            if how_many_skips <= 2:
+                print(f"{how_many_skips}? You clearly want to be here.")
+                print("College is worth it.")
+            else:
+                classSkipCredits = int(input("How many credits is this class? (1-3): "))
+                classSkipDays = int(input("How many days does this class meet? (1-75): "))
+                worth_it = skips_per_class(totalCost, how_many_skips, totalCredits, classSkipCredits, classSkipDays) # the total cost of all your skipped classes
+                totalCostOfTheClass = (cost_per_credit(totalCost, totalCredits) * classSkipCredits) # the total cost of the class
+                if worth_it <= (totalCostOfTheClass / 4):
+                    print(f"Out of the ${totalCostOfTheClass:.2f} you'd have to pay for this class, you'd only be wasting ${worth_it:.2f}.")
                     print("College is worth it.")
-                    break
                 else:
-                    print("That's not a Yes or No response, pal. Back to the menu with you.")
-                    break
+                    print(f"Out of the ${totalCostOfTheClass:.2f} you'd have to pay for this class, you'd waste ${worth_it:.2f}. That's way too much to justify!")
+                    print("College is NOT worth it.")
         elif (choice == "Q") or (choice == "q"): # fixed it
             break # quits loop
         else:
